@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginTop="24dp"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?colorSurface">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/evscore_top_bg"
+            android:layout_width="0dp"
+            android:layout_height="256dp"
+            android:background="@drawable/bg_profile_3_layer_gradient"
+            android:elevation="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_ev_score_mask"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            android:backgroundTint="?android:colorBackground"
+            app:layout_constraintTop_toBottomOf="@id/evscore_top_bg"
+            app:layout_constraintBottom_toTopOf="@id/tv_sustainaible_mob"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back_evscore"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="@dimen/margin16"
+            android:elevation="30dp"
+            android:padding="3dp"
+            android:tint="?android:colorBackground"
+            app:layout_constraintBottom_toBottomOf="@id/tv_evscore"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_evscore"
+            app:srcCompat="@drawable/ic_back_badges" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_evscore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/vision_bold"
+            android:gravity="center"
+            android:letterSpacing="0.04"
+            android:maxLines="1"
+            android:text="EV SCORE"
+            android:textAllCaps="true"
+            android:textColor="?android:colorBackground"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/star_evscore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            app:layout_constraintEnd_toStartOf="@+id/evScore"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_evscore"
+            app:srcCompat="@drawable/ic_icon_star_score" />
+
+        <TextView
+            android:id="@+id/evScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin8"
+            android:layout_marginTop="@dimen/margin8"
+            android:ellipsize="end"
+            android:fontFamily="@font/vision_regular"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toBottomOf="@+id/star_evscore"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/star_evscore"
+            app:layout_constraintTop_toTopOf="@+id/star_evscore"
+            tools:text="8.34" />
+
+        <View
+            android:id="@+id/imag_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="64dp"
+            app:layout_constraintBottom_toBottomOf="@id/evscore_top_bg" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/radar_card"
+            android:layout_width="0dp"
+            android:layout_height="336dp"
+            android:layout_marginStart="@dimen/margin16"
+            android:layout_marginEnd="@dimen/margin16"
+            app:cardBackgroundColor="?colorSurface"
+            app:cardCornerRadius="@dimen/margin16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imag_line">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <com.github.mikephil.charting.charts.RadarChart
+                    android:id="@+id/radarChart"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="56dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    app:layout_constraintBottom_toTopOf="@id/char_perf_box"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/char_perf_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin24"
+                    android:background="@drawable/charg_perf_bg_evscore"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/char_perf_txt"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/char_perf_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin8"
+                    android:fontFamily="@font/vision_regular"
+                    android:text="Charging Performance"
+                    android:textColor="@color/color_secondary_60"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/char_perf_box"
+                    app:layout_constraintEnd_toStartOf="@+id/char_perf_value"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/char_perf_box"
+                    app:layout_constraintTop_toTopOf="@+id/char_perf_box" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/char_perf_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:fontFamily="@font/vision_regular"
+                    android:textColor="@color/color_secondary_87"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/char_perf_box"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/char_perf_txt"
+                    app:layout_constraintTop_toTopOf="@+id/char_perf_box"
+                    tools:text="7.53" />
+
+
+                <ImageView
+                    android:id="@+id/driv_beha_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin12"
+                    android:background="@drawable/driv_beh_bg_evscore"
+                    app:layout_constraintBottom_toTopOf="@id/char_perf_box"
+
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/char_perf_box" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/driv_beh_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/vision_regular"
+                    android:text="Driving Behavior"
+                    android:textColor="@color/color_secondary_60"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/driv_beha_box"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/char_perf_txt"
+                    app:layout_constraintTop_toTopOf="@+id/driv_beha_box" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/driv_beh_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/vision_regular"
+                    android:textColor="@color/color_secondary_87"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/driv_beha_box"
+
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/char_perf_value"
+                    app:layout_constraintTop_toTopOf="@+id/driv_beha_box"
+                    tools:text="7.53" />
+
+
+                <ImageView
+                    android:id="@+id/sust_mob_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin12"
+                    android:background="@drawable/sust_mob_bg_evscore"
+                    app:layout_constraintBottom_toTopOf="@id/driv_beha_box"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/char_perf_box" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/sust_mob_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/vision_regular"
+                    android:text="Sustainable Mobility"
+                    android:textColor="@color/color_secondary_60"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/sust_mob_box"
+
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/char_perf_txt"
+                    app:layout_constraintTop_toTopOf="@+id/sust_mob_box" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/sust_mob_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/vision_regular"
+                    android:textColor="@color/color_secondary_87"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/sust_mob_box"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/char_perf_value"
+                    app:layout_constraintTop_toTopOf="@+id/sust_mob_box"
+                    tools:text="7.53" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_sustainaible_mob"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin16"
+            android:background="@color/color_wisp_pink_12"
+            android:fontFamily="@font/vision_regular"
+            android:paddingStart="@dimen/margin16"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp"
+            android:text="Sustainable Mobility"
+            android:textColor="?colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radar_card" />
+
+        <TextView
+            android:id="@+id/ekms_driven"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/vision_regular"
+            android:rotation="-90"
+            android:text="ekms Driven"
+            android:textColor="@color/color_primary_87"
+            android:textSize="14sp"
+            android:translationX="-16dp"
+            app:layout_constraintBottom_toBottomOf="@id/linechart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/linechart" />
+
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/linechart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="@dimen/margin16"
+            android:layout_marginEnd="@dimen/margin16"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="?colorSurface"
+            app:layout_constraintBottom_toTopOf="@+id/chart_month_evscore"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sustainaible_mob" />
+
+
+        <TextView
+            android:id="@+id/chart_month_evscore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin24"
+            android:fontFamily="@font/vision_regular"
+            android:textColor="@color/color_primary_87"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_driving_beh"
+            app:layout_constraintEnd_toEndOf="@id/linechart"
+            app:layout_constraintStart_toStartOf="@id/linechart"
+            tools:text="JUNE 2022" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_driving_beh"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="238dp"
+            android:background="@color/color_wisp_pink_12"
+            android:fontFamily="@font/vision_regular"
+            android:paddingStart="@dimen/margin16"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp"
+            android:text="Driving Behavior"
+            android:textColor="?colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sustainaible_mob" />
+
+
+        <com.ekndev.gaugelibrary.MultiGauge
+            android:id="@+id/multiGauge"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="@dimen/margin12"
+            app:layout_constraintBottom_toTopOf="@+id/tv_charging_perf"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_driving_beh" />
+
+        <View
+            android:id="@+id/multiguage_imag_line"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/multiGauge" />
+
+
+        <View
+            android:id="@+id/imag_hori_center_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/multiGauge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/multiGauge" />
+
+        <TextView
+            android:id="@+id/overspeed_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/vision_regular"
+            android:rotation="-90"
+            android:textColor="?colorOnSurface"
+            android:textSize="12sp"
+            android:translationX="-2dp"
+            app:layout_constraintBottom_toTopOf="@+id/imag_hori_center_line"
+            app:layout_constraintStart_toStartOf="@id/multiGauge"
+            tools:text="5.00" />
+
+        <TextView
+            android:id="@+id/breaking_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:fontFamily="@font/vision_regular"
+            android:rotation="-90"
+            android:textColor="?colorOnSurface"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/overspeed_value"
+            app:layout_constraintStart_toStartOf="@id/multiGauge"
+            tools:text="10.00" />
+
+        <TextView
+            android:id="@+id/acc_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:fontFamily="@font/vision_regular"
+            android:rotation="-90"
+            android:textColor="?colorOnSurface"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/overspeed_value"
+            app:layout_constraintStart_toStartOf="@id/multiGauge"
+            tools:text="10.00" />
+
+        <TextView
+            android:id="@+id/regen_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="49dp"
+            android:fontFamily="@font/vision_regular"
+            android:rotation="-90"
+            android:textColor="?colorOnSurface"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/overspeed_value"
+
+            app:layout_constraintStart_toStartOf="@id/multiGauge"
+            tools:text="10.00" />
+
+
+        <TextView
+            android:id="@+id/overspee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/vision_regular"
+            android:gravity="end"
+            android:text="Overspeeding"
+            android:textColor="@color/color_secondary_72"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/multiguage_imag_line"
+            app:layout_constraintTop_toTopOf="@id/multiguage_imag_line" />
+
+        <TextView
+            android:id="@+id/braking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/vision_regular"
+            android:text="Braking"
+            android:textColor="@color/color_secondary_72"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/overspee"
+            app:layout_constraintTop_toBottomOf="@id/overspee" />
+
+        <TextView
+            android:id="@+id/acc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/vision_regular"
+            android:text="Acceleration"
+            android:textColor="@color/color_secondary_72"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/overspee"
+            app:layout_constraintTop_toBottomOf="@id/braking" />
+
+        <TextView
+            android:id="@+id/regen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/vision_regular"
+            android:text="Regen"
+            android:textColor="@color/color_secondary_72"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/overspee"
+            app:layout_constraintTop_toBottomOf="@id/acc" />
+
+
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/vision_regular"
+            android:textColor="?colorOnSurface"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/multiGauge"
+            app:layout_constraintEnd_toEndOf="@id/multiGauge"
+            app:layout_constraintStart_toStartOf="@id/multiGauge"
+            app:layout_constraintTop_toTopOf="@id/multiGauge"
+            tools:text="7.33" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_charging_perf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="238dp"
+            android:background="@color/color_wisp_pink_12"
+            android:fontFamily="@font/vision_regular"
+            android:paddingStart="@dimen/margin16"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp"
+            android:text="Charging Performance"
+            android:textColor="?colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_driving_beh" />
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/piechart"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/margin16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_charging_perf" />
+
+
+        <ImageView
+            android:id="@+id/nc_box_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:background="@drawable/nc_bg_evscore"
+            app:layout_constraintBottom_toTopOf="@+id/fc_box_score"
+            app:layout_constraintStart_toEndOf="@id/piechart"
+            app:layout_constraintTop_toTopOf="@id/piechart"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/nc_text_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin8"
+            android:fontFamily="@font/vision_regular"
+            android:text="Normal Charging"
+            android:textColor="?colorSecondary"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/nc_box_score"
+            app:layout_constraintStart_toEndOf="@+id/nc_box_score"
+            app:layout_constraintTop_toTopOf="@id/nc_box_score" />
+
+
+        <ImageView
+            android:id="@+id/fc_box_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin12"
+            android:background="@drawable/fc_bg_score"
+            app:layout_constraintBottom_toBottomOf="@id/piechart"
+            app:layout_constraintStart_toStartOf="@id/nc_box_score"
+            app:layout_constraintTop_toBottomOf="@id/nc_box_score" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin8"
+            android:fontFamily="@font/vision_regular"
+            android:text="Fast Charging"
+            android:textColor="?colorSecondary"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/fc_box_score"
+            app:layout_constraintStart_toEndOf="@+id/fc_box_score"
+            app:layout_constraintTop_toTopOf="@id/fc_box_score" />
+
+        <View
+            android:id="@+id/horizontal_divider_score"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/margin16"
+            android:layout_marginTop="@dimen/margin8"
+            android:layout_marginEnd="@dimen/margin16"
+            android:background="@color/primary_color_dark_opacity12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/piechart" />
+
+
+        <ProgressBar
+            android:id="@+id/healthy_progress_bar"
+            android:layout_width="83dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="20dp"
+            android:indeterminateOnly="false"
+            android:progressDrawable="@drawable/circle_evscore"
+            app:layout_constraintEnd_toStartOf="@id/overnight_progress_bar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_divider_score"
+            tools:progress="56" />
+
+
+        <ProgressBar
+            android:id="@+id/overnight_progress_bar"
+            android:layout_width="83dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="20dp"
+            android:indeterminateOnly="false"
+            android:progressDrawable="@drawable/circle_evscore"
+            app:layout_constraintEnd_toStartOf="@id/compliance_progress_bar"
+            app:layout_constraintStart_toEndOf="@id/healthy_progress_bar"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_divider_score"
+            tools:progress="30" />
+
+
+        <ProgressBar
+            android:id="@+id/compliance_progress_bar"
+            android:layout_width="83dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="20dp"
+            android:indeterminateOnly="false"
+            android:progressDrawable="@drawable/circle_evscore"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/overnight_progress_bar"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_divider_score"
+            tools:progress="80" />
+
+        <TextView
+            android:id="@+id/healthy_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/vision_regular"
+            android:gravity="center"
+            android:text="Healthy Charging"
+            android:textColor="@color/color_secondary_87"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/healthy_progress_bar"
+            app:layout_constraintStart_toStartOf="@id/healthy_progress_bar"
+            app:layout_constraintTop_toBottomOf="@+id/healthy_progress_bar" />
+
+        <TextView
+            android:id="@+id/overnight_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/vision_regular"
+            android:gravity="center"
+            android:text="Overnight Charging"
+            android:textColor="@color/color_secondary_87"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/overnight_progress_bar"
+            app:layout_constraintStart_toStartOf="@id/overnight_progress_bar"
+            app:layout_constraintTop_toBottomOf="@+id/overnight_progress_bar" />
+
+
+        <TextView
+            android:id="@+id/compliance_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/vision_regular"
+            android:gravity="center"
+            android:text="Charging Compliance"
+            android:textColor="@color/color_secondary_87"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/compliance_progress_bar"
+            app:layout_constraintStart_toStartOf="@id/compliance_progress_bar"
+            app:layout_constraintTop_toBottomOf="@+id/compliance_progress_bar" />
+
+
+        <TextView
+            android:id="@+id/healthy_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/vision_regular"
+            android:gravity="center"
+            android:textColor="?colorSecondary"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/healthy_progress_bar"
+            app:layout_constraintEnd_toEndOf="@id/healthy_progress_bar"
+            app:layout_constraintStart_toStartOf="@id/healthy_progress_bar"
+            app:layout_constraintTop_toTopOf="@+id/healthy_progress_bar"
+            tools:text="9.6" />
+
+        <TextView
+            android:id="@+id/overnight_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/vision_regular"
+            android:gravity="center"
+            android:textColor="?colorSecondary"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/overnight_progress_bar"
+            app:layout_constraintEnd_toEndOf="@id/overnight_progress_bar"
+            app:layout_constraintStart_toStartOf="@id/overnight_progress_bar"
+            app:layout_constraintTop_toTopOf="@+id/overnight_progress_bar"
+            tools:text="9.6" />
+
+
+        <TextView
+            android:id="@+id/compliance_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/vision_regular"
+            android:gravity="center"
+            android:textColor="?colorSecondary"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/compliance_progress_bar"
+            app:layout_constraintEnd_toEndOf="@id/compliance_progress_bar"
+            app:layout_constraintStart_toStartOf="@id/compliance_progress_bar"
+            app:layout_constraintTop_toTopOf="@+id/compliance_progress_bar"
+            tools:text="9.6" />
+
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="2dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/radar_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
